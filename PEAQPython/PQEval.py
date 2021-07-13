@@ -58,7 +58,7 @@ class PQEval(object):
 				temp = (np.amin([self.fu[i], (k+0.5)*self.df]) - np.amax([self.fl[i], (k-0.5)*self.df])) / self.df
 				self.U[k, i] = np.amax([0, temp])
 				
-		print "Everything Precomputed, ready to go!"
+		print("Everything Precomputed, ready to go!")
 
 	def PQDFTFrame(self, x):
 		# Window the data
@@ -139,7 +139,7 @@ class PQEval(object):
 		# Calculate energy-dependent terms
 		aL = 10**(2.7*self.dz)
 
-		for l in xrange(self.Nc):
+		for l in range(self.Nc):
 			aUC = 10**((-2.4 - 23/self.fc[l])*self.dz)
 			aUCE = aUC * (E[l]**(0.2*self.dz))
 			gIL = (1 - aL**(-1*(l+1))) / (1 - aL**(-1))
@@ -151,20 +151,20 @@ class PQEval(object):
 		# Lower spreading
 		Es[self.Nc-1] = Ene[self.Nc-1]
 		aLe = aL**(-1*e)
-		for i in xrange((self.Nc-2),-1,-1):
+		for i in range((self.Nc-2),-1,-1):
 			Es[i] = aLe*Es[i+1] + Ene[i]
 		
 		
 		# Upper spreading (i > m)
-		for i in xrange(0,(self.Nc-1)):
+		for i in range(0,(self.Nc-1)):
 			r = Ene[i]
 			a = aUCEe[i]
-			for l in xrange((i+1),self.Nc):
+			for l in range((i+1),self.Nc):
 				r = r*a
 				Es[l] = Es[l] + r
 				
 		# Normalize the values by the normalization factor
-		for i in xrange(0,self.Nc):
+		for i in range(0,self.Nc):
 			Es[i] = (Es[i]**(1/e)) / Bs[i]
 			
 		return Es
@@ -181,7 +181,7 @@ class PQEval(object):
 		Ehs = np.zeros(self.Nc)
 		
 		# Time domain smoothing
-		for i in xrange(self.Nc):
+		for i in range(self.Nc):
 			Ef[i] = alpha[i]*Ef[i] + (1-alpha[i])*Es[i]
 			Ehs[i] = max(Ef[i],Es[i])
 		   
