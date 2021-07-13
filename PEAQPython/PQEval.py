@@ -42,8 +42,8 @@ class PQEval(object):
 
 		# Allocate storage
 		self.Eb = np.zeros((2, self.Nc))
-		self.Xw2 = np.zeros((2, self.NF/2+1))
-		self.XwN2 = np.zeros(self.NF/2+1)
+		self.Xw2 = np.zeros((2, self.NF//2+1))
+		self.XwN2 = np.zeros(self.NF//2+1)
 		self.E = np.zeros(self.Eb.shape)
 		self.Es = np.zeros((2, self.Nc))
 
@@ -51,9 +51,9 @@ class PQEval(object):
 		self.df = float(self.Fs) / self.NF
 		self.Emin = 1e-12
 		
-		self.U = np.zeros((self.NF/2+1, self.Nc))
+		self.U = np.zeros((self.NF//2+1, self.Nc))
 
-		for k in range(self.NF/2+1):
+		for k in range(self.NF//2+1):
 			for i in range(self.Nc):
 				temp = (np.amin([self.fu[i], (k+0.5)*self.df]) - np.amax([self.fl[i], (k-0.5)*self.df])) / self.df
 				self.U[k, i] = np.amax([0, temp])
@@ -235,8 +235,8 @@ class PQEval(object):
 
 		if (ifn > 0):
 			X = np.fft.fft (x, N)
-			XR = np.real(X[0:N/2+1])
-			XI = np.imag(X[1:N/2-1+1])
+			XR = np.real(X[0:N//2+1])
+			XI = np.imag(X[1:N//2-1+1])
 			X = np.concatenate([XR, XI])
 			return X
 		else:
@@ -250,7 +250,7 @@ class PQEval(object):
 
 		X2[0] = X[0]**2
 		for k in range(N/2-1):
-			X2[k+1] = X[k+1]**2 + X[N/2+k+1]**2
+			X2[k+1] = X[k+1]**2 + X[N//2+k+1]**2
 
 		X2[N/2] = X[N/2]**2
 		return X2
