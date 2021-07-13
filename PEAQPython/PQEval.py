@@ -26,7 +26,7 @@ class PQEval(object):
 		self.hw = self.GL*self.PQHannWin(self.NF)
 
 		#Precompute frequency vector:
-		self.f = np.linspace (0, self.Fs/2, self.NF/2+1)
+		self.f = np.linspace (0, self.Fs//2, self.NF//2+1)
 
 		#Outer and middle ear weighting:
 		self.W2 = self.PQWOME (self.f)
