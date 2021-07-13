@@ -41,13 +41,13 @@ class PEAQ(object):
 		if np.amax(abs(sigR)) != self.Amax:
 			sigRS = self.Amax*sigR/float(np.amax(abs(sigR)))
 			sigTS = self.Amax*sigT/float(np.amax(abs(sigT)))
-			print 'Signals scaled, max reference value = ' + str(np.amax(abs(sigRS))) + ','
-			print 'and max test value = ' + str(np.amax(abs(sigTS))) +'.'
+			print(('Signals scaled, max reference value = ' + str(np.amax(abs(sigRS))) + ','))
+			print(('and max test value = ' + str(np.amax(abs(sigTS))) +'.'))
 
 		#Instantiate Object to process single frames of data:
 		self.PQE = PQEval(Amax = self.Amax, Fs = self.Fs, NF = self.NF)
 
-		print 'Processing Audio...'
+		print('Processing Audio...')
 		
 		#Create empty matrices:
 		X2 = np.zeros((2,self.NF/2+1))
@@ -100,8 +100,8 @@ class PEAQ(object):
 		    self.EhsR[i,:], previousFrameR = self.PQE.PQ_timeSpread(self.EsMatR[i,:], previousFrameR)
 		    self.EhsT[i,:], previousFrameT = self.PQE.PQ_timeSpread(self.EsMatT[i,:], previousFrameT)
 
-		print 'Audio Processed! (Kabal, section 2), ' + str(self.Np) + ' windows processed ' + \
-		  ' in ' + str(time.clock()-startTime) + ' seconds.'
+		print(('Audio Processed! (Kabal, section 2), ' + str(self.Np) + ' windows processed ' + \
+		  ' in ' + str(time.clock()-startTime) + ' seconds.'))
 
 
 	def computeBW(self, X2MatR, X2MatT):
@@ -150,14 +150,14 @@ class PEAQ(object):
 	    # does not exceed FR * Xth for kx-1 <= k <= kl+1
 	    BWRef = -1
 	    XthR = FR * Xth # Reference signal threshold level
-	    for k in xrange(kx-1,kl,-1):
+	    for k in range(kx-1,kl,-1):
 	        if (X2[0,k+1] >= XthR):
 	            BWRef = k+1
 	            break
 	            
 	    BWTest = -1
 	    XthT = FT * Xth # Test signal threshold level
-	    for k in xrange(BWRef-1,-1,-1):
+	    for k in range(BWRef-1,-1,-1):
 	        if (X2[1,k+1] >= XthT):
 	            BWTest = k+1
 	            break
@@ -199,7 +199,7 @@ class PEAQ(object):
 	    # purposes, I'll include this.
 	    R_NM = np.zeros(Nc)
 	    
-	    for k in xrange(Nc):
+	    for k in range(Nc):
 	        NMRm = EbN[k] / (gm[k] * Ehs[k])
 	        R_NM[k] = NMRm # Remove later!
 	        s = s + NMRm
@@ -214,7 +214,7 @@ class PEAQ(object):
 
 	def PQ_MaskOffset(self, dz, Nc):
 	    gm = np.zeros(Nc)
-	    for k in xrange(Nc):
+	    for k in range(Nc):
 	        if (k <= 12./dz):
 	            mdB = 3
 	        else:
