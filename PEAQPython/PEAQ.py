@@ -76,7 +76,7 @@ class PEAQ(object):
 		for i in np.arange(int(self.Np)):
 		    xR = sigRS[startS:self.NF+startS]
 		    xT = sigTS[startS:self.NF+startS]
-		    startS = startS+self.Nadv
+		    startS = startS+int(self.Nadv)
 
 		    #Store unmodified windows of audio:
 		    self.xMatR[i, :] = xR
