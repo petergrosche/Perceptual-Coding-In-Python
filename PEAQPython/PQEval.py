@@ -246,13 +246,13 @@ class PQEval(object):
 		# Calculate the magnitude squared frequency response from the
 		# DFT values corresponding to a real signal (assumes N is even)
 
-		X2 = np.zeros(N/2+1)
+		X2 = np.zeros(int(N//2)+1)
 
 		X2[0] = X[0]**2
-		for k in range(N/2-1):
-			X2[k+1] = X[k+1]**2 + X[N//2+k+1]**2
+		for k in range(int(N//2)-1):
+			X2[k+1] = X[k+1]**2 + X[int(N//2)+k+1]**2
 
-		X2[N/2] = X[N/2]**2
+		X2[N/2] = X[int(N//2)]**2
 		return X2
 
 	def PQ_GL(self, NF=2048, Amax=1, fcN=1019.5/48000., Lp=92.):
