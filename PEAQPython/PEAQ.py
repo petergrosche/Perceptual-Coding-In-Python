@@ -50,10 +50,10 @@ class PEAQ(object):
 		print('Processing Audio...')
 		
 		#Create empty matrices:
-		X2 = np.zeros((2,self.NF//2+1))
+		X2 = np.zeros((2,int(self.NF//2)+1))
 
-		self.X2MatR = np.zeros((self.Np, self.NF//2+1))
-		self.X2MatT = np.zeros((self.Np, self.NF//2+1))
+		self.X2MatR = np.zeros((self.Np, int(self.NF//2)+1))
+		self.X2MatT = np.zeros((self.Np, int(self.NF//2)+1))
 
 		self.EbNMat = np.zeros((self.Np, self.Nc))
 		self.EsMatR = np.zeros((self.Np, self.Nc))
