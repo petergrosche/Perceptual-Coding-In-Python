@@ -66,8 +66,8 @@ class PEAQ(object):
 		previousFrameT = np.zeros(self.Nc)
 
 		#Maybe take this out later, but useful in debugging:
-		self.xMatR = np.zeros((self.Np, self.NF))
-		self.xMatT = np.zeros((self.Np, self.NF))
+		self.xMatR = np.zeros((int(self.Np), self.NF))
+		self.xMatT = np.zeros((int(self.Np), self.NF))
 
 		startS = 0
 
