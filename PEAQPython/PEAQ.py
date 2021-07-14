@@ -106,8 +106,8 @@ class PEAQ(object):
 
 	def computeBW(self, X2MatR, X2MatT):
 		#Kabal Section 5.4
-		BWRef = np.zeros(self.Np)
-		BWTest = np.zeros(self.Np)
+		BWRef = np.zeros(int(self.Np))
+		BWTest = np.zeros(int(self.Np))
 
 		for i in range(int(self.Np)):
 			BWRef[i], BWTest[i] = self.PQmovBW(np.vstack((self.X2MatR[i,:], self.X2MatT[i,:])))
@@ -168,8 +168,8 @@ class PEAQ(object):
 		#Kabal Section ...
 		#Compute NRM for whole time series.
 
-		NMRavg = np.zeros(self.Np)
-		NMRmax = np.zeros(self.Np)
+		NMRavg = np.zeros(int(self.Np))
+		NMRmax = np.zeros(int(self.Np))
 
 		for i in range(int(self.Np)):
 			NMR = self.PQmovNMRB(EbNMat[i,:], EhsR[i,:])
