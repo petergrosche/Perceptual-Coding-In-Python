@@ -76,8 +76,8 @@ class PQEval(object):
 		# Critical band grouping and frequency spreading
 
 		# Outer and middle ear filtering
-		self.Xw2[0,:] = self.W2 * X2[0,0:self.NF/2+1]
-		self.Xw2[1,:] = self.W2 * X2[1,0:self.NF/2+1]
+		self.Xw2[0,:] = self.W2 * X2[0,0:int(self.NF//2)+1]
+		self.Xw2[1,:] = self.W2 * X2[1,0:int(self.NF//2)+1]
 
 		# Form the difference magnitude signal
 		self.XwN2 = self.Xw2[0,:] - 2*np.sqrt(self.Xw2[0,:]*self.Xw2[1,:]) + self.Xw2[1,:]
