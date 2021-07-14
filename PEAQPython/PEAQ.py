@@ -53,14 +53,14 @@ class PEAQ(object):
 		X2 = np.zeros((2,int(self.NF//2)+1))
 
 		self.X2MatR = np.zeros((int(self.Np), int(self.NF//2)+1))
-		self.X2MatT = np.zeros((self.Np, int(self.NF//2)+1))
+		self.X2MatT = np.zeros((int(self.Np), int(self.NF//2)+1))
 
-		self.EbNMat = np.zeros((self.Np, self.Nc))
-		self.EsMatR = np.zeros((self.Np, self.Nc))
-		self.EsMatT = np.zeros((self.Np, self.Nc))
+		self.EbNMat = np.zeros((int(self.Np), self.Nc))
+		self.EsMatR = np.zeros((int(self.Np), self.Nc))
+		self.EsMatT = np.zeros((int(self.Np), self.Nc))
 
-		self.EhsR = np.zeros((self.Np, self.Nc))
-		self.EhsT = np.zeros((self.Np, self.Nc))
+		self.EhsR = np.zeros((int(self.Np), self.Nc))
+		self.EhsT = np.zeros((int(self.Np), self.Nc))
 
 		previousFrameR = np.zeros(self.Nc)
 		previousFrameT = np.zeros(self.Nc)
