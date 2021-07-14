@@ -252,7 +252,7 @@ class PQEval(object):
 		for k in range(int(N//2)-1):
 			X2[k+1] = X[k+1]**2 + X[int(N//2)+k+1]**2
 
-		X2[N/2] = X[int(N//2)]**2
+		X2[int(N//2)] = X[int(N//2)]**2
 		return X2
 
 	def PQ_GL(self, NF=2048, Amax=1, fcN=1019.5/48000., Lp=92.):
