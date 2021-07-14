@@ -73,7 +73,7 @@ class PEAQ(object):
 
 		startTime = time.clock()
 
-		for i in np.arange(self.Np):
+		for i in np.arange(int(self.Np)):
 		    xR = sigRS[startS:self.NF+startS]
 		    xT = sigTS[startS:self.NF+startS]
 		    startS = startS+self.Nadv
